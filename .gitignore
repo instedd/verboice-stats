@@ -26,3 +26,5 @@ node_modules
 stats.json
 
 config.json
+
+.env
