@@ -1,0 +1,26 @@
+{
+  "name": "verboice-stats",
+  "version": "0.0.0",
+  "description": "Verboice usage statistics",
+  "main": "verboice-stats.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instedd/verboice-stats"
+  },
+  "author": "nditada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/instedd/verboice-stats/issues"
+  },
+  "homepage": "https://github.com/instedd/verboice-stats",
+  "dependencies": {
+    "logfmt": "^1.1.2",
+    "express": "^4.0.0",
+    "aws2js": "^0.8.3",
+    "aws-sdk": "^2.0.0-rc.14",
+    "async": "^0.7.0"
+  }
+}
