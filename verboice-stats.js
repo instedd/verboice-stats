@@ -10,7 +10,7 @@ var app = express();
 var bucket = 'verboice-stats.instedd.org';
 var localStatsPath = './stats.json';
 
-AWS.config.update({region: 'us-west-1'});
+AWS.config.update({region: 'us-east-1'});
 
 var s3 = new AWS.S3(); 
 
