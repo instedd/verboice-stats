@@ -32,30 +32,28 @@ function downloadStats(){
 
 	s3.listObjects({Bucket: bucket}, function(err, data){
 		if (err) 
-			console.log(err, err.stack); 
-  		else
-  		{
-  			var remote_files = [];
-  			remote_files.push(data.Contents);
-  			console.log("Found " + remote_files[0].length + " files in bucket");
+			return console.log(err, err.stack); 
+  		
+  		var remote_files = [];
+  		remote_files.push(data.Contents);
+  		console.log("Found " + remote_files[0].length + " files in bucket");
 
-  			//todo: check for data.isTruncated
+  		//todo: check for data.isTruncated
 
-			var writer = fs.createWriteStream(localStatsPath, {flags: 'w', encoding: 'utf8'});
+		var writer = fs.createWriteStream(localStatsPath, {flags: 'w', encoding: 'utf8'});
   			
-  			//todo: batch in chunks
-  			async.map(remote_files[0], getFile, function (err, result) {
-  				if(!err) 
-  				{
-			    	writer.end(JSON.stringify(result));
-			    	console.log('Finished');
-			  	} 
-			  	else 
-			  	{
-			    	console.log('Error: ' + err);
-			  	}
-			});
-  		}
+  		//todo: batch in chunks
+  		async.map(remote_files[0], getFile, function (err, result) {
+  			if(!err) 
+  			{
+		    	writer.end(JSON.stringify(result));
+		    	console.log('Finished');
+		  	} 
+		  	else 
+		  	{
+		    	console.log('Error: ' + err);
+		  	}
+		});
   	});
 }
 
